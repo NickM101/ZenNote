@@ -4,7 +4,6 @@ import {useNavigation, useTheme} from "@react-navigation/native";
 
 import { GlobalStyles } from "@styles";
 import dark_back from "@images/dark_back.png";
-import dark_menu from '@images/dark_menu.png';
 
 const NavigationBar = React.forwardRef(({onSavePress, onAddPress}, ref) => {
   const navigation = useNavigation();
