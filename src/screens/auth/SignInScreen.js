@@ -24,12 +24,12 @@ function reducer(state, action) {
 }
 
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   const handleSubmit = () => {
     console.log(state);
-    // navigation.navigate("Home");
+    navigation.navigate("Home");
   }
 
   const handleLeftButtonPress = () => {
