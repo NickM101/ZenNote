@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 
 const Routing = () => {
   return (
-      <Stack.Navigator initialRouteName="SignUp" screenOptions={{
+      <Stack.Navigator initialRouteName="Intro" screenOptions={{
         headerShown: false
       }}>
         <Stack.Screen name="Intro" component={IntroScreen} />

@@ -1,18 +1,36 @@
 import React from "react";
-import {StyleSheet, View} from "react-native";
+import {View} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
 
-import ButtonRow from "@components/ButtonRow";
-import UsernameInput from "@components/UsernameInput";
-import PasswordInput from "@components/PasswordInput";
-import Divider from "@components/Divider";
+import {ButtonRow, UsernameInput, PasswordInput, Divider,OutlinedButton, Header} from "@components";
 import {GlobalStyles} from "@styles";
 import GoogleIcon from "@images/google.png";
 import FacebookIcon from "@images/facebook.png";
-import Header from "@components/Header";
+
+const initialState = {
+  username: '',
+  password: '',
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'SET_USERNAME':
+      return { ...state, username: action.payload };
+    case 'SET_PASSWORD':
+      return { ...state, password: action.payload };
+    default:
+      return state;
+  }
+}
+
 
 const SignUpScreen = () => {
-  const {username, setUsername} = React.useState("");
+  const [state, dispatch] = React.useReducer(reducer, initialState);
+
+  const handleSubmit = () => {
+    console.log(state);
+    // navigation.navigate("Home");
+  }
 
   const handleLeftButtonPress = () => {
     navigation.navigate("SignIn");
@@ -28,16 +46,17 @@ const SignUpScreen = () => {
     >
       <Header />
       <UsernameInput
-        value={username}
-        onChangeText={(text) => setUsername(text)}
+        value={state.username}
+        onChangeText={(text) => dispatch({ type: 'SET_USERNAME', payload: text })}
         error={""}
       />
       <PasswordInput
-        value={username}
-        onChangeText={(text) => setUsername(text)}
+        value={state.password}
+        onChangeText={(text) => dispatch({ type: 'SET_PASSWORD', payload: text })}
         error={""}
         placeholder={"****"}
       />
+      <OutlinedButton title={"Sign In"} onPress={handleSubmit} fill={true} />
       <View style={GlobalStyles.spacer20} />
       <Divider />
       <View style={GlobalStyles.spacer20} />
@@ -55,20 +74,3 @@ const SignUpScreen = () => {
 };
 
 export default SignUpScreen;
-
-const styles = StyleSheet.create({
-  logo: {
-    height: 50,
-    width: 60,
-  },
-  header: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
-  image: {
-    alignSelf: "center",
-    height: 250,
-    width: 200,
-  },
-});

@@ -23,8 +23,9 @@ const styles = StyleSheet.create({
     height: 56,
   },
    input: {
-      flex: 1,
-      ...GlobalStyles.regularText,
+    flex: 1,
+    ...GlobalStyles.regularText,
+    color: colors.text,
     },
   iconContainer: {
     padding: 8,

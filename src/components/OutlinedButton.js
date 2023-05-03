@@ -3,7 +3,7 @@ import {  Text, Image, StyleSheet, View, Pressable } from 'react-native';
 import { useTheme } from '@react-navigation/native';
 import { GlobalStyles } from '../config/theme';
 
-const OutlinedButton = ({ title, onPress, icon, iconPosition = 'left' }) => {
+const OutlinedButton = ({ title, onPress, icon, iconPosition = 'left', fill = false }) => {
   const { colors } = useTheme();
 
   const styles = StyleSheet.create({
@@ -15,15 +15,12 @@ const OutlinedButton = ({ title, onPress, icon, iconPosition = 'left' }) => {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      width: 170,
+      width: fill ? '100%' : 170 ,
       borderColor: colors.border
     },
-    iconContainer: {
-      marginRight: 2,
-    },
     icon: {
-      width: 24,
-      height: 24,
+      width: 30,
+      height: 30,
     },
   });
 
@@ -33,13 +30,13 @@ const OutlinedButton = ({ title, onPress, icon, iconPosition = 'left' }) => {
       onPress={onPress}
     >
       {icon && iconPosition === 'left' && (
-        <View style={styles.iconContainer}>
+        <View>
           <Image source={icon} style={styles.icon} />
         </View>
       )}
       <Text style={[GlobalStyles.buttonText, {color:colors.text}]}>{title}</Text>
       {icon && iconPosition === 'right' && (
-        <View style={styles.iconContainer}>
+        <View>
           <Image source={icon} style={styles.icon} />
         </View>
       )}

@@ -60,7 +60,7 @@ const PasswordInput = ({icon, onChangeText, value, placeholder, error}) => {
       width: 24
     }
   });
-console.log(colors.text)
+  
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Password</Text>

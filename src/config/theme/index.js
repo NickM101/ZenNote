@@ -57,7 +57,7 @@ export const GlobalStyles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 22,
     fontFamily: "ZillaSlab-Regular",
-    textAlign: "center",
+    textAlign: 'center'
   },
   captionText: {
     fontSize: 12,
@@ -70,6 +70,7 @@ export const GlobalStyles = StyleSheet.create({
     fontFamily: "ZillaSlab-Bold",
     marginLeft: 10,
     marginRight: 10,
+    textAlign: 'center'
   },
 
 });
