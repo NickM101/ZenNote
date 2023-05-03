@@ -59,6 +59,12 @@ export const GlobalStyles = StyleSheet.create({
     fontFamily: "ZillaSlab-Regular",
     textAlign: 'center'
   },
+  smallBoldText: {
+    fontSize: 14,
+    lineHeight: 22,
+    fontFamily: "ZillaSlab-Bold",
+    textAlign: 'center'
+  },
   captionText: {
     fontSize: 12,
     lineHeight: 16,
