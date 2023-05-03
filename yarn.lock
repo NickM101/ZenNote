@@ -6364,11 +6364,6 @@ react-native-bootsplash@^4.6.0:
     picocolors "^1.0.0"
     sharp "^0.32.0"
 
-react-native-cn-quill@^0.7.17:
-  version "0.7.17"
-  resolved "https://registry.yarnpkg.com/react-native-cn-quill/-/react-native-cn-quill-0.7.17.tgz#aabfe3707f11dfc0e7eea855f178053e1dfb5318"
-  integrity sha512-tAxGmZPQ4kvGVaUNmV1Iad22DZd6yrWiBLtKIbqGMjpGDgIqdmTAOVcLbdnYWkifKy8Mclksu421gwhm/L38Gg==
-
 react-native-codegen@^0.71.5:
   version "0.71.5"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.71.5.tgz#454a42a891cd4ca5fc436440d301044dc1349c14"
@@ -6399,6 +6394,11 @@ react-native-mmkv@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/react-native-mmkv/-/react-native-mmkv-2.8.0.tgz#328318256eb50f0b87826edceaff4b1cd70ba957"
   integrity sha512-sfI2uzr5UCz7jS6QxIWnC7AbIuoIw9T7hDtsw0ohSlIdCABPoORPu8xpOSZN2bMkK7Z7sMQwLeP73uBXu0A3jw==
+
+react-native-pell-rich-editor@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/react-native-pell-rich-editor/-/react-native-pell-rich-editor-1.9.0.tgz#e222b4cd8ead9b5e1de7b6cf2f31a3315c82e570"
+  integrity sha512-BKzlu++FySzPXrb5bczD8b/ZZJtfzcD4z7FvW7TrH+4OENEQtaIiEMfmb5N09Kv3YVJcfm8fut8Y+GLNAcCQHA==
 
 react-native-permissions@^3.8.0:
   version "3.8.0"

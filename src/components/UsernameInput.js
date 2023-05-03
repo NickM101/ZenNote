@@ -46,8 +46,10 @@ const styles = StyleSheet.create({
 
         <TextInput
         style={[styles.inputContainer, error && {borderColor: colors.error}]}
+        value={value}
           onChangeText={onChangeText}
-          value={value}
+          placeholder="Username (required)"
+          placeholderTextColor={'#a9a9a9'}
           autoCapitalize="none"
           autoCorrect={false}
         />

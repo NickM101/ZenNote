@@ -1,14 +1,16 @@
 import React from "react";
 import {StyleSheet, Image, View, Text} from "react-native";
+import { useTheme } from "@react-navigation/native";
 
 import logo from "@images/zen_note_logo.png";
 import {GlobalStyles} from "@styles";
 
 const LeftSideBar = () => {
+  const { colors } = useTheme();
   return (
     <View style={styles.container}>
       <Image source={logo} style={styles.logo} />
-      <Text style={styles.textLayout}>
+      <Text style={[styles.textLayout, { color: colors.text}]}>
         Be Minimalist
       </Text>
       <View />

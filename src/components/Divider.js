@@ -4,7 +4,7 @@ import { useTheme } from '@react-navigation/native';
 
 import { GlobalStyles } from '../config/theme';
 
-const Divider = () => {
+const Divider = ({ withoutOR = false}) => {
     const { colors } = useTheme();
 
     const styles = StyleSheet.create({
@@ -31,7 +31,7 @@ const Divider = () => {
   return (
     <View style={styles.container}>
       <View style={styles.line} />
-      <Text style={styles.text}>OR</Text>
+      {withoutOR ?  null :<Text style={styles.text}>OR</Text>}
       <View style={styles.line} />
     </View>
   );

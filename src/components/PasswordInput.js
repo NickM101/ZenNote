@@ -73,10 +73,10 @@ const PasswordInput = ({icon, onChangeText, value, placeholder, error}) => {
           onChangeText={onChangeText}
           value={value}
           placeholder={placeholder}
+          placeholderTextColor={'#a9a9a9'}
           secureTextEntry={hidePassword}
           autoCapitalize="none"
           autoCorrect={false}
-          placeholderTextColor={colors.text}
         />
         <TouchableOpacity
           style={styles.iconContainer}
