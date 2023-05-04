@@ -2,6 +2,9 @@ import React from "react";
 import {StyleSheet, Text, View} from "react-native";
 import RenderHtml from "react-native-render-html";
 import {useWindowDimensions} from "react-native";
+import HTMLView from 'react-native-htmlview';
+import { WebView } from 'react-native-webview';
+
 
 import {GlobalStyles} from "@styles";
 import {NavigationButton} from "@components";

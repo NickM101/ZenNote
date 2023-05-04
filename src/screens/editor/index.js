@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import {SafeAreaView, View, KeyboardAvoidingView, Platform} from "react-native";
 import {useTheme} from "@react-navigation/native";
 import {actions, RichEditor, RichToolbar} from "react-native-pell-rich-editor";
@@ -10,6 +10,7 @@ import Preview from "@images/file_preview.png";
 
 import TitleComponent from "./TitleComponent";
 import FontFamilyStyleSheet from "../../config/utils/stylesheet";
+import NavigationBar from "./NavigationBar";
 
 const ToolbarTools = [
   actions.redo,
@@ -45,54 +46,50 @@ const ToolbarTools = [
   actions.removeFormat,
 ];
 
-const NewNote = ({navigation, route}) => {
+const NewNote = React.memo(({navigation, route}) => {
   const _editor = React.createRef();
   const {colors} = useTheme();
 
   const [descHTML, setDescHTML] = React.useState("");
   const [showDescError, setShowDescError] = React.useState(false);
 
-  React.useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: true,
-      headerTitleAlign: "center",
-      title: "",
-      headerLeft: () => (
-        <NavigationButton
-          image={dark_back}
-          onPress={() => navigation.goBack()}
-        />
-      ),
-      headerRight: () => (
-        <NavigationButton
-             image={Preview}
-             back={false}
-             onPress={submitContentHandle}
-           />
-      ),
-      headerTitleStyle: {...GlobalStyles.buttonText},
-      headerShadowVisible: false,
-    });
-  }, [navigation, route]);
+  // React.useLayoutEffect(() => {
+  //   navigation.setOptions({
+  //     headerShown: true,
+  //     headerTitleAlign: "center",
+  //     title: "",
+  //     headerLeft: () => (
+  //       <NavigationButton
+  //         image={dark_back}
+  //         onPress={() => navigation.goBack()}
+  //       />
+  //     ),
+  //     headerRight: () => (
+  //       <NavigationButton
+  //            image={Preview}
+  //            back={false}
+  //            onPress={submitContentHandle}
+  //          />
+  //     ),
+  //     headerTitleStyle: {...GlobalStyles.buttonText},
+  //     headerShadowVisible: false,
+  //   });
+  // }, [navigation, route]);
 
 
 
-  const richTextHandle = (descriptionText) => {
+  const richTextHandle = useCallback((descriptionText) => {
     setDescHTML(descriptionText);
     setShowDescError(!descriptionText);
-  };
+  }, []);
 
   const submitContentHandle = () => {
-    const plainText = descHTML
-      .replace(/<(.|\n)*?>/g, "")
-      .replace(/&nbsp;/g, "")
-      .trim();
-    setShowDescError(!plainText);
-    if (plainText) {
+    setShowDescError(!descHTML);
+    if (descHTML) {
       // send data to your server!
-      navigation.navigate('PreviewNote', { body: plainText})
+      navigation.navigate('PreviewNote', { body: descHTML})
     } else {
-      console.log("Error", plainText);
+      console.log("Error", descHTML);
       console.info(descHTML)
     }
   };
@@ -103,16 +100,17 @@ const NewNote = ({navigation, route}) => {
         flex: 1,
       }}
     >
+      <NavigationBar onPreviewPress={submitContentHandle} />
       <TitleComponent />
       <KeyboardAvoidingView
         behavior={"height"}
       >
-        <View style={{marginHorizontal: 5}}>
+        <View style={{marginHorizontal: 10}}>
           <RichEditor
             ref={_editor}
             placeholder="Your Note..."
             androidHardwareAccelerationDisabled={true}
-            initialHeight={"83%"}
+            initialHeight={"84%"}
             editorStyle={{
               initialCSSText: `${FontFamilyStyleSheet}`,
               contentCSSText: `font-family: Zilla Slab`,
@@ -139,6 +137,6 @@ const NewNote = ({navigation, route}) => {
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
-};
+});
 
 export default NewNote;
