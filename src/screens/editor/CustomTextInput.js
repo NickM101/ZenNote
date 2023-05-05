@@ -4,7 +4,7 @@ import {useTheme} from "@react-navigation/native";
 
 import {GlobalStyles} from "@styles";
 
-const TitleComponent = ({value, onChangeText}) => {
+const CustomTextInput = ({value, onChangeText, disabled = true}) => {
   const {colors} = useTheme();
 
   const styles = StyleSheet.create({
@@ -17,6 +17,7 @@ const TitleComponent = ({value, onChangeText}) => {
       paddingHorizontal: 20,
       ...GlobalStyles.regularText,
       color: colors.text,
+      marginVertical: 10,
     },
   });
 
@@ -29,8 +30,12 @@ const TitleComponent = ({value, onChangeText}) => {
       value={value}
       autoCapitalize="words"
       autoCorrect={true}
+      editable={disabled}
+      
     />
   );
 };
 
-export default TitleComponent;
+export default CustomTextInput;
+
+

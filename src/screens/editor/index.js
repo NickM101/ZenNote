@@ -1,16 +1,11 @@
 import React, { useCallback } from "react";
-import {SafeAreaView, View, KeyboardAvoidingView, Platform} from "react-native";
 import {useTheme} from "@react-navigation/native";
+import {SafeAreaView, View, KeyboardAvoidingView} from "react-native";
 import {actions, RichEditor, RichToolbar} from "react-native-pell-rich-editor";
 
-import {GlobalStyles} from "@styles";
-import {NavigationButton} from "@components";
-import dark_back from "@images/dark_back.png";
-import Preview from "@images/file_preview.png";
-
-import TitleComponent from "./TitleComponent";
 import FontFamilyStyleSheet from "../../config/utils/stylesheet";
 import NavigationBar from "./NavigationBar";
+import CustomTextInput from "./CustomTextInput";
 
 const ToolbarTools = [
   actions.redo,
@@ -53,31 +48,6 @@ const NewNote = React.memo(({navigation, route}) => {
   const [descHTML, setDescHTML] = React.useState("");
   const [showDescError, setShowDescError] = React.useState(false);
 
-  // React.useLayoutEffect(() => {
-  //   navigation.setOptions({
-  //     headerShown: true,
-  //     headerTitleAlign: "center",
-  //     title: "",
-  //     headerLeft: () => (
-  //       <NavigationButton
-  //         image={dark_back}
-  //         onPress={() => navigation.goBack()}
-  //       />
-  //     ),
-  //     headerRight: () => (
-  //       <NavigationButton
-  //            image={Preview}
-  //            back={false}
-  //            onPress={submitContentHandle}
-  //          />
-  //     ),
-  //     headerTitleStyle: {...GlobalStyles.buttonText},
-  //     headerShadowVisible: false,
-  //   });
-  // }, [navigation, route]);
-
-
-
   const richTextHandle = useCallback((descriptionText) => {
     setDescHTML(descriptionText);
     setShowDescError(!descriptionText);
@@ -101,7 +71,7 @@ const NewNote = React.memo(({navigation, route}) => {
       }}
     >
       <NavigationBar onPreviewPress={submitContentHandle} />
-      <TitleComponent />
+      <CustomTextInput />
       <KeyboardAvoidingView
         behavior={"height"}
       >

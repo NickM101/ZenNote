@@ -7,12 +7,13 @@ import SignUpScreen from "@auth/SignUpScreen.js";
 import HomeScreen from "../../screens/home";
 import NewNote from "../../screens/editor";
 import PreviewNotes from "../../screens/preview";
+import BrowseNotes from "../../screens/notes";
 
 const Stack = createNativeStackNavigator();
 
 const Routing = () => {
   return (
-      <Stack.Navigator initialRouteName="NewNote" screenOptions={{
+      <Stack.Navigator initialRouteName="BrowseNote" screenOptions={{
         headerShown: false,
         
       }}>
@@ -22,6 +23,7 @@ const Routing = () => {
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="NewNote" component={NewNote} />
         <Stack.Screen name="PreviewNote" component={PreviewNotes} />
+        <Stack.Screen name="BrowseNote" component={BrowseNotes} />
       </Stack.Navigator>
   );
 };
