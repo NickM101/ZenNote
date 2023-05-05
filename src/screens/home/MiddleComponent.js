@@ -12,7 +12,7 @@ const MiddleComponent = () => {
   const navigation = useNavigation()
 
   const handleBrowseNotes = () => {
-    console.log("Browse Notes")
+    navigation.navigate('BrowseNote');
   };
 
   const handleNewNote = () => {

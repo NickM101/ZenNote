@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator();
 
 const Routing = () => {
   return (
-      <Stack.Navigator initialRouteName="BrowseNote" screenOptions={{
+      <Stack.Navigator initialRouteName="Intro" screenOptions={{
         headerShown: false,
         
       }}>

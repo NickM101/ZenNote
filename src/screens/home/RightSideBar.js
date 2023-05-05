@@ -2,8 +2,8 @@ import React from "react";
 import {StyleSheet, View, Image, Pressable} from "react-native";
 import {useTheme} from "@react-navigation/native";
 
-import light_search from "@images/light_search.png";
-import dark_search from "@images/dark_search.png";
+import search from "@images/search.png";
+
 const RightSideBar = () => {
   const {colors} = useTheme();
 
@@ -15,11 +15,12 @@ const RightSideBar = () => {
     <View style={styles.container}>
       <Pressable onPress={handleSearch}>
         <Image
-          source={colors.text === "#FFF" ? light_search : dark_search}
+          source={search}
           style={styles.image}
+          tintColor={colors.text}
         />
       </Pressable>
-      <View style={[styles.line, { color: colors.text }]}/>
+      <View style={[styles.line, { backgroundColor: colors.placeholder }]}/>
       <View />
     </View>
   );
@@ -44,10 +45,8 @@ const styles = StyleSheet.create({
     width: 24,
   },
   line: {
-    height: 10,
-    width: 20,
+    height: 50,
+    width: 5,
     borderRadius: 10,
-    transform: [{ rotate: "-90deg" }],
-
   }
 });

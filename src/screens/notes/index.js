@@ -3,8 +3,7 @@ import { FlatList, StyleSheet, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { GlobalStyles } from '@styles';
-import dark_back from "@images/dark_back.png";
-import search from "@images/search.png";
+import back from "@images/back.png";import search from "@images/search.png";
 import { Divider, OutlinedButton, NavigationButton } from '@components';
 import TitleComponent from './TitleComponent';
 
@@ -20,8 +19,8 @@ const BrowseNotes = ({ navigation }) => {
         navigation.setOptions({
           headerShown: true,
           headerTitleAlign: "center",
-          title: '',
-          headerLeft: () => <NavigationButton image={dark_back} onPress={() => navigation.goBack()} />,
+          title: 'Edit Note',
+          headerLeft: () => <NavigationButton image={back} onPress={() => navigation.goBack()} />,
           headerRight: () => <NavigationButton image={search} back={false} onPress={() => navigation.goBack()} />,
           headerTitleStyle:{...GlobalStyles.buttonText},
           headerShadowVisible: false

@@ -8,8 +8,7 @@ import { WebView } from 'react-native-webview';
 
 import {GlobalStyles} from "@styles";
 import {NavigationButton} from "@components";
-import dark_back from "@images/dark_back.png";
-import save from "@images/save.png";
+import back from "@images/back.png";import save from "@images/save.png";
 
 
 const PreviewNotes = ({navigation, route}) => {
@@ -24,7 +23,7 @@ const PreviewNotes = ({navigation, route}) => {
       headerShown: true,
       headerTitleAlign: "center",
       title: route.params?.title ? route.params.title : '',
-      headerLeft: () => <NavigationButton image={dark_back} onPress={() => navigation.goBack()} />,
+      headerLeft: () => <NavigationButton image={back} onPress={() => navigation.goBack()} />,
       headerRight: () => <NavigationButton image={save} onPress={onSave} back={false} />,
       headerTitleStyle:{...GlobalStyles.buttonText},
       headerShadowVisible: false

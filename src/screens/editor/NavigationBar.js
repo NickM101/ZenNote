@@ -3,8 +3,7 @@ import {View, TouchableOpacity, Text, StyleSheet, Image} from "react-native";
 import {useNavigation, useTheme} from "@react-navigation/native";
 
 import {GlobalStyles} from "@styles";
-import dark_back from "@images/dark_back.png";
-
+import back from "@images/back.png";
 const NavigationBar = ({onPreviewPress}) => {
   const navigation = useNavigation();
   const {colors} = useTheme();
@@ -12,7 +11,7 @@ const NavigationBar = ({onPreviewPress}) => {
   return (
     <View style={styles.header}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Image source={dark_back} style={styles.back} tintColor={colors.text} />
+        <Image source={back} style={styles.back} tintColor={colors.text} />
       </TouchableOpacity>
       {/* <TouchableOpacity onPress={onSavePress}>
         <Text style={[GlobalStyles.buttonText, {color: colors.text, marginLeft: 40}]}>Save</Text>

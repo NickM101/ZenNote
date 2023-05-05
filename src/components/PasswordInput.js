@@ -10,10 +10,8 @@ import {
 import {useTheme} from "@react-navigation/native";
 
 import {GlobalStyles} from "@styles";
-import light_eye from "@images/light_eye.png";
-import dark_eye from "@images/dark_eye.png";
-import light_blind from "@images/light_blind.png";
-import dark_blind from "@images/dark_blind.png";
+import eye from "@images/eye.png";
+import blind from "@images/blind.png";
 
 const PasswordInput = ({icon, onChangeText, value, placeholder, error}) => {
   const {colors} = useTheme();
@@ -82,7 +80,7 @@ const PasswordInput = ({icon, onChangeText, value, placeholder, error}) => {
           style={styles.iconContainer}
           onPress={togglePasswordVisibility}
         >
-        { hidePassword ? <Image style={styles.image} source={colors.text === '#FFF' ? light_eye : dark_eye} /> : <Image style={styles.image} source={colors.text === '#FFF' ? light_blind : dark_blind} />}
+        { hidePassword ? <Image style={styles.image} source={eye} tintColor={colors.text} /> : <Image style={styles.image} source={blind} tintColor={colors.text} />}
         </TouchableOpacity>
       </View>
       {error && (
