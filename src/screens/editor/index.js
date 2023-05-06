@@ -154,7 +154,7 @@ const NewNote = React.memo(({navigation, route}) => {
           selectedIconTint={colors.text}
           actions={ToolbarTools}
           onPressAddImage={handlePressAddImage}
-          onInsertLink={(_) => console.log(_)}
+          onInsertLink={onInsertLink}
           insertVideo={(_) => console.log(_)}
         />
       </KeyboardAvoidingView>
