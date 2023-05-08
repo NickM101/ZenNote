@@ -13,19 +13,21 @@ const Stack = createNativeStackNavigator();
 
 const Routing = () => {
   return (
-      <Stack.Navigator initialRouteName="Intro" screenOptions={{
-        headerShown: false,
-        
-      }}>
-        <Stack.Screen name="Intro" component={IntroScreen} />
-        <Stack.Screen name="SignIn" component={SignInScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="NewNote" component={NewNote} />
-        <Stack.Screen name="PreviewNote" component={PreviewNotes} />
-        <Stack.Screen name="BrowseNote" component={BrowseNotes} />
-      </Stack.Navigator>
-  );
+    <Stack.Navigator
+      initialRouteName="Intro"
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Stack.Screen name="Intro" component={IntroScreen} />
+      <Stack.Screen name="SignIn" component={SignInScreen} />
+      <Stack.Screen name="SignUp" component={SignUpScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="NewNote" component={NewNote} />
+      <Stack.Screen name="PreviewNote" component={PreviewNotes} />
+      <Stack.Screen name="BrowseNote" component={BrowseNotes} />
+    </Stack.Navigator>
+  )
 };
 
 export default Routing;

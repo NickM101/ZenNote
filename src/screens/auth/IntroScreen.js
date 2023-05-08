@@ -42,9 +42,7 @@ const IntroScreen = ({navigation}) => {
         <Text style={{fontFamily: "ZillaSlab-BoldItalic"}}>Zen Note</Text>
       </Text>
       <Text style={[GlobalStyles.smallText, {color: colors.text}]}>
-        Zen Note is a mobile note-taking app with a minimalist interface, device
-        synchronization, and powered by Quill's natural language processing.
-      </Text>
+      ZenNote is a lightweight and intuitive note-taking application designed for modern mobile devices. With a clean and minimalist user interface</Text>
       <View style={GlobalStyles.spacer50} />
       <ButtonRow
         leftButtonTitle="Sign In"

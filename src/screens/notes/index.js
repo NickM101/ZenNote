@@ -57,11 +57,11 @@ const BrowseNotes = ({ navigation }) => {
   return (
    <SafeAreaView style={styles.container}>
         <FlatList
-      data={data}
-      renderItem={renderItem}
-      keyExtractor={keyExtractor}
-      ListFooterComponent={footerComponent}
-      ListHeaderComponent={<View style={{marginVertical: 10}} />}
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={keyExtractor}
+          ListFooterComponent={footerComponent}
+          ListHeaderComponent={<View style={{marginVertical: 10}} />}
     />
     </SafeAreaView>
   )
