@@ -8,7 +8,7 @@ ZenNote is a lightweight and intuitive note-taking application designed for mode
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](/src/assets/screenshots.png)
 
 # :construction_worker: Installation
 
@@ -39,9 +39,11 @@ ZenNote is a lightweight and intuitive note-taking application designed for mode
 
 - [x]  Complete UI
 - [x]  Light/Dark Mode
-- [ ]  Add State Management [Zustand]
-- [ ]  Add video insert capability
+- [x]  Add image insert capability
+- [x]  Add video insert capability
+- [x]  Add link insert capability
 - [ ]  Add audio insert capability
+- [ ]  Add State Management [Zustand]
 - [ ]  Back-End intergration
     - [ ]  Auth
     - [ ]  Saving and Retrieving note
