@@ -69,7 +69,7 @@ Don't forget to give the project a star! Thanks again!
 
 ## Acknowledgements
 
- - [Behance] - https://www.behance.net/gallery/75021533/Zen-Note-App
+ - [@Ismail El Azizi](https://www.behance.net/ismailelazizi) - https://www.behance.net/gallery/75021533/Zen-Note-App
 
 
 ## Feedback
