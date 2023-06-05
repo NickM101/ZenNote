@@ -23,7 +23,7 @@ export default function App() {
           <Routing />
         
         </NavigationContainer>
-        <Toast />
+        <Toast visibilityTime={6000}/>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

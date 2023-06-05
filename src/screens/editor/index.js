@@ -3,6 +3,7 @@ import { useTheme } from '@react-navigation/native'
 import { SafeAreaView, KeyboardAvoidingView } from 'react-native'
 import { actions, RichEditor, RichToolbar } from 'react-native-pell-rich-editor'
 import PromptAndroid from 'react-native-prompt-android'
+import Toast from 'react-native-toast-message'
 
 import FontFamilyStyleSheet from '../../config/utils/stylesheet'
 import NavigationBar from './NavigationBar'
@@ -47,7 +48,6 @@ const NewNote = React.memo(({ navigation }) => {
   const { colors } = useTheme()
 
     const onCursorPosition = (event) => {
-      console.log('event', event)
       const scrollY = event
       _editorRef.current?.scrollTo({ y: scrollY - 30, animated: true })
     }
@@ -64,11 +64,15 @@ const NewNote = React.memo(({ navigation }) => {
     setShowDescError(!descHTML)
     if (descHTML) {
       // send data to your server!
-      console.log('title', inputValue)
       navigation.navigate('PreviewNote', { title: inputValue, body: descHTML })
     } else {
-      console.log('Error', descHTML)
-      console.info(descHTML)
+      Toast.show({
+        type: 'error',
+        text1: "Cannot Preview Empty Note",
+        text2: "Note preview unavailable. Please add content to view the note.",
+        position: "bottom",
+        bottomOffset: 20
+      })
     }
   }
 
