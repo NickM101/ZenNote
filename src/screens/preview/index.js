@@ -4,12 +4,16 @@ import RenderHtml, {HTMLElementModel, useInternalRenderer } from 'react-native-r
 
 import {GlobalStyles} from "@styles";
 import {NavigationButton} from "@components";
-import back from "@images/back.png";import save from "@images/save.png";
+import back from "@images/back.png";
+import save from "@images/save.png";
+
+import {cutStringWithEllipsis} from "../../config/utils/helper";
 
 
 const PreviewNotes = ({navigation, route}) => {
   const {width} = useWindowDimensions();
   const htmlContent = route.params?.body;
+  const title = route.params?.title ?? '';
 
   const inputModel = new HTMLElementModel({
     tagName: 'input',
@@ -29,10 +33,10 @@ const PreviewNotes = ({navigation, route}) => {
     navigation.setOptions({
       headerShown: true,
       headerTitleAlign: "center",
-      title: route.params?.title ? route.params.title : '',
+      title: cutStringWithEllipsis(title, 22),
       headerLeft: () => <NavigationButton image={back} onPress={() => navigation.goBack()} />,
       headerRight: () => <NavigationButton image={save} onPress={onSave} back={false} />,
-      headerTitleStyle:{...GlobalStyles.buttonText},
+      headerTitleStyle:{width: 10, overflow: "hidden", ...GlobalStyles.buttonText},
       headerShadowVisible: false
     });
   }, [navigation, route]);
@@ -51,12 +55,11 @@ const PreviewNotes = ({navigation, route}) => {
     }
   };
 
+
+
   return (
-    <View style={{paddingHorizontal: 20, paddingVertical: 10}}>
-
-
+    <View style={{paddingHorizontal: 20, marginBottom: 10}}>
       <RenderHtml 
-      debug
         contentWidth={width} 
         source={{ html: htmlContent }} 
         tagsStyles={tagsStyles}
@@ -68,4 +71,5 @@ const PreviewNotes = ({navigation, route}) => {
 };
 
 export default PreviewNotes;
+
 

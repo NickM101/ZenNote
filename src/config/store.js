@@ -17,11 +17,3 @@ const useNotesStore = create((set) => ({
 
 export default useNotesStore;
 
-
-//  searchNotes: (searchText) =>
-//     set((state) => ({
-//       searchText,
-//       filteredNotes: state.notes.filter((note) =>
-//         note.title.toLowerCase().includes(searchText.toLowerCase())
-//       ),
-//     })),

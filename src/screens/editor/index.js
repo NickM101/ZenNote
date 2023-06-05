@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useTheme } from '@react-navigation/native'
 import { SafeAreaView, KeyboardAvoidingView } from 'react-native'
 import { actions, RichEditor, RichToolbar } from 'react-native-pell-rich-editor'
@@ -64,7 +64,8 @@ const NewNote = React.memo(({ navigation }) => {
     setShowDescError(!descHTML)
     if (descHTML) {
       // send data to your server!
-      navigation.navigate('PreviewNote', { body: descHTML })
+      console.log('title', inputValue)
+      navigation.navigate('PreviewNote', { title: inputValue, body: descHTML })
     } else {
       console.log('Error', descHTML)
       console.info(descHTML)
@@ -160,6 +161,12 @@ const NewNote = React.memo(({ navigation }) => {
     color: colors.text
   }
 
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (text) => {
+    setInputValue(text);
+  };
+
   return (
     <SafeAreaView
       style={{
@@ -167,7 +174,7 @@ const NewNote = React.memo(({ navigation }) => {
       }}
     >
       <NavigationBar onPreviewPress={submitContentHandle} />
-      <CustomTextInput />
+      <CustomTextInput value={inputValue} onChangeText={handleInputChange}/>
       <KeyboardAvoidingView behavior={'height'}>
         
           <RichEditor
