@@ -62,7 +62,7 @@ const NewNote = React.memo(({ navigation }) => {
 
   const submitContentHandle = () => {
     setShowDescError(!descHTML)
-    if (descHTML) {
+    if (descHTML && inputValue) {
       // send data to your server!
       navigation.navigate('PreviewNote', { title: inputValue, body: descHTML })
     } else {
