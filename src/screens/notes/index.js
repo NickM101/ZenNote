@@ -9,17 +9,17 @@ import TitleComponent from './TitleComponent';
 
 const BrowseNotes = ({ navigation }) => {
     const [data, setData] = React.useState([
-        {id: 1, title: 'True Lies', date: '12-03-2023'},
-        {id: 2, title: 'The Flash', date: '12-03-2023'},
-        {id: 3, title: 'Superman and Lois', date: '12-03-2023'},
-        {id: 4, title: 'Windows 11', date: '12-03-2023'},
+        {id: 1, description: 'This is an example of a description of the note with less words displayed', title: 'True Lies', date: '12-03-2023'},
+        {id: 2, description: 'This is an example of a description of the note with less words displayed', title: 'The Flash', date: '12-03-2023'},
+        {id: 3, description: 'This is an example of a description of the note with less words displayed', title: 'Superman and Lois', date: '12-03-2023'},
+        {id: 4, description: 'This is an example of a description of the note with less words displayed', title: 'Windows 11', date: '12-03-2023'},
       ]);
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
           headerShown: true,
           headerTitleAlign: "center",
-          title: 'Edit Note',
+          title: 'Browse Notes',
           headerLeft: () => <NavigationButton image={back} onPress={() => navigation.goBack()} />,
           headerRight: () => <NavigationButton image={search} back={false} onPress={() => navigation.goBack()} />,
           headerTitleStyle:{...GlobalStyles.buttonText},
@@ -37,6 +37,7 @@ const BrowseNotes = ({ navigation }) => {
           <TitleComponent
             onPress={() => handleNavigation(item.id)}
             title={item.title}
+            description={item.description}
             date={item.date}
           />
         );
@@ -62,6 +63,7 @@ const BrowseNotes = ({ navigation }) => {
           keyExtractor={keyExtractor}
           ListFooterComponent={footerComponent}
           ListHeaderComponent={<View style={{marginVertical: 10}} />}
+          contentContainerStyle={{ paddingHorizontal: 15 , alignItems: 'center'}}
     />
     </SafeAreaView>
   )
