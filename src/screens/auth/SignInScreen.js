@@ -1,6 +1,7 @@
 import React from "react";
 import {View} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
+import Toast from 'react-native-toast-message'
 
 import {ButtonRow, UsernameInput, PasswordInput, Divider,OutlinedButton, Header} from "@components";
 import {GlobalStyles} from "@styles";
@@ -32,15 +33,15 @@ const SignInScreen = ({ navigation }) => {
     navigation.navigate("Home");
   }
 
-  const handleLeftButtonPress = () => {
-    navigation.navigate("SignIn");
+  const handleButtonPress = () => {
+    Toast.show({
+      type: 'info',
+      text1: 'ONLY FOR DEMO PURPOSE ONLY',
+      text2: "Demo only. No real actions or data processed.",
+      position: "bottom",
+      bottomOffset: 20
+    })
   };
-
-  const handleRightButtonPress = () => {
-    navigation.navigate("SignUp");
-  };
-
-  console.log("render")
 
   return (
     <SafeAreaView
@@ -64,10 +65,10 @@ const SignInScreen = ({ navigation }) => {
       <View style={GlobalStyles.spacer20} />
       <ButtonRow
         leftButtonTitle="Continue with Google"
-        leftButtonOnPress={handleLeftButtonPress}
+        leftButtonOnPress={handleButtonPress}
         leftButtonIcon={GoogleIcon}
         rightButtonTitle="Continue with Facebook"
-        rightButtonOnPress={handleRightButtonPress}
+        rightButtonOnPress={handleButtonPress}
         rightButtonIcon={FacebookIcon}
       />
       <View style={GlobalStyles.spacer20} />

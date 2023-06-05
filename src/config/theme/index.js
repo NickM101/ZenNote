@@ -9,7 +9,7 @@ export const lightTheme = {
     card: "#DDDBC7",
     text: "#000",
     border: "#000",
-    notification: "##fcfbf9",
+    notification: "#fcfbf9",
     error: 'red',
     placeholder: "#a9a9a9"
   },
@@ -23,7 +23,7 @@ export const darkTheme = {
     card: "#3d3c36",
     text: "#FFF",
     border: "#FFF",
-    notification: "##fcfbf9",
+    notification: "#fcfbf9",
     error: 'red',
     placeholder: "#a9a9a9"
   },

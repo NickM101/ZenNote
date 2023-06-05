@@ -4,6 +4,7 @@ import {SafeAreaProvider} from "react-native-safe-area-context";
 import RNBootSplash from "react-native-bootsplash";
 import {NavigationContainer} from "@react-navigation/native";
 import { useColorScheme } from "react-native";
+import Toast from 'react-native-toast-message';
 
 import Routing from "./src/config/routes";
 import {lightTheme, darkTheme} from "@styles/index.js"
@@ -20,7 +21,9 @@ export default function App() {
           onReady={() => RNBootSplash.hide({fade: true})}
         >
           <Routing />
+        
         </NavigationContainer>
+        <Toast />
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
