@@ -169,6 +169,7 @@ const NewNote = React.memo(({ navigation }) => {
       <NavigationBar onPreviewPress={submitContentHandle} />
       <CustomTextInput />
       <KeyboardAvoidingView behavior={'height'}>
+        
           <RichEditor
             ref={_editorRef}
             androidLayerType="software"
@@ -181,7 +182,7 @@ const NewNote = React.memo(({ navigation }) => {
             onChange={richTextHandle}
             onCursorPosition={onCursorPosition}
             pasteAsPlainText={true}
-            containerStyle={{ flex: 1 }}
+            containerStyle={{ flex: 1, paddingHorizontal: 10 }}
           />
         <RichToolbar
           editor={_editorRef}
