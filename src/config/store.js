@@ -1,6 +1,7 @@
 import { create } from 'zustand'
+import { devtools } from 'zustand/middleware'
 
-const useNotesStore = create((set) => ({
+ const useNotesStore = create((set) => ({
   notes: [],
   addNote: (note) => set((state) => ({ notes: [...state.notes, note] })),
   deleteNote: (id) =>
@@ -13,7 +14,7 @@ const useNotesStore = create((set) => ({
       note.title.toLowerCase().includes(state.searchText.toLowerCase())
     )
   }
-}))
+}));
 
 export default useNotesStore;
-
+// export const usePlainStore = create(devtools(useNotesStore));

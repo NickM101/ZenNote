@@ -8,26 +8,15 @@ import back from "@images/back.png";
 import save from "@images/save.png";
 
 import {cutStringWithEllipsis} from "../../config/utils/helper";
+import useNotesStore from "../../config/store";
 
 
 const PreviewNotes = ({navigation, route}) => {
-  const {width} = useWindowDimensions();
   const htmlContent = route.params?.body;
   const title = route.params?.title ?? '';
-
-  const inputModel = new HTMLElementModel({
-    tagName: 'input',
-    contentModel: 'textual', 
-    isVoid: true,
-    isOpaque: true,
-  });
   
-  const customHTMLElementModels = {
-    ...HTMLElementModel.defaultModels,
-    input: inputModel,
-  };
-
-  const onSave = () => {};
+  const {width} = useWindowDimensions();
+  const addNote = useNotesStore((state) => state.addNote);
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -35,11 +24,18 @@ const PreviewNotes = ({navigation, route}) => {
       headerTitleAlign: "center",
       title: cutStringWithEllipsis(title, 22),
       headerLeft: () => <NavigationButton image={back} onPress={() => navigation.goBack()} />,
-      headerRight: () => <NavigationButton image={save} onPress={onSave} back={false} />,
+      headerRight: () => <NavigationButton image={save} onPress={onNotesSave} back={false} />,
       headerTitleStyle:{width: 10, overflow: "hidden", ...GlobalStyles.buttonText},
       headerShadowVisible: false
     });
   }, [navigation, route]);
+
+
+  const onNotesSave = () => {
+      const newNote = { title, note: htmlContent};
+      addNote(newNote);
+  }
+
 
  
   const tagsStyles = {
@@ -55,7 +51,17 @@ const PreviewNotes = ({navigation, route}) => {
     }
   };
 
-
+  const inputModel = new HTMLElementModel({
+    tagName: 'input',
+    contentModel: 'textual', 
+    isVoid: true,
+    isOpaque: true,
+  });
+  
+  const customHTMLElementModels = {
+    ...HTMLElementModel.defaultModels,
+    input: inputModel,
+  };
 
   return (
     <View style={{paddingHorizontal: 20, marginBottom: 10}}>

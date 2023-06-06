@@ -7,6 +7,7 @@ import back from "@images/back.png";import search from "@images/search.png";
 import { Divider, OutlinedButton, NavigationButton } from '@components';
 import TitleComponent from './TitleComponent';
 import EmptyNotes from './empty_notes';
+import useNotesStore from '../../config/store';
 
 const BrowseNotes = ({ navigation }) => {
     const [data, setData] = React.useState([
@@ -16,6 +17,9 @@ const BrowseNotes = ({ navigation }) => {
         {id: 4, description: 'This is an example of a description of the note with less words displayed', title: 'Windows 11', date: '12-03-2023'},
       ]);
 
+      const savedNotes = useNotesStore(state => state.notes);
+
+      console.log('Saved Notes ---- savedNotes', savedNotes);
     React.useLayoutEffect(() => {
         navigation.setOptions({
           headerShown: true,
