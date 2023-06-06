@@ -10,13 +10,6 @@ import EmptyNotes from './empty_notes';
 import useNotesStore from '../../config/store';
 
 const BrowseNotes = ({ navigation }) => {
-    const [data, setData] = React.useState([
-        {id: 1, description: 'This is an example of a description of the note with less words displayed', title: 'True Lies', date: '12-03-2023'},
-        {id: 2, description: 'This is an example of a description of the note with less words displayed', title: 'The Flash', date: '12-03-2023'},
-        {id: 3, description: 'This is an example of a description of the note with less words displayed', title: 'Superman and Lois', date: '12-03-2023'},
-        {id: 4, description: 'This is an example of a description of the note with less words displayed', title: 'Windows 11', date: '12-03-2023'},
-      ]);
-
       const savedNotes = useNotesStore(state => state.notes);
 
       console.log('Saved Notes ---- savedNotes', savedNotes);
@@ -32,23 +25,22 @@ const BrowseNotes = ({ navigation }) => {
         });
       }, [navigation]);
 
-      const handleNavigation = (id) => {
+      const handleNavigation = (item) => {
         // Handle navigation to the details screen based on the item ID
-        navigation.navigate('NewNote')
+        navigation.navigate('PreviewNote', { read_only: true })
       };
     
       const renderItem = ({item}) => {
         return (
           <TitleComponent
-            onPress={() => handleNavigation(item.id)}
+            onPress={() => handleNavigation(item)}
             title={item.title}
-            description={item.description}
             date={item.date}
           />
         );
       };
 
-      const keyExtractor = (item) => item.id.toString();
+      const keyExtractor = (item) => item.id;
 
       const footerComponent = () => {
         return (
@@ -63,7 +55,7 @@ const BrowseNotes = ({ navigation }) => {
   return (
    <SafeAreaView style={styles.container}>
         <FlatList
-          data={[]}
+          data={savedNotes}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           ListFooterComponent={footerComponent}

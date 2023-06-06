@@ -6,7 +6,7 @@ import {GlobalStyles} from "@styles";
 import {cutStringWithEllipsis} from "../../config/utils/helper";
 
 
-const TitleComponent = ({title, description, date, onPress}) => {
+const TitleComponent = ({title, date, onPress}) => {
   const { colors } = useTheme();
   const {height} = useWindowDimensions();
 
@@ -34,7 +34,7 @@ const TitleComponent = ({title, description, date, onPress}) => {
     <Pressable onPress={onPress} style={styles.container}>
       <View style={{flexDirection: 'column', }}>
         <Text style={{ fontWeight: 'bold', fontSize: 18, paddingBottom: 5}}>{title}</Text>
-       <Text>{cutStringWithEllipsis(description,40)}</Text>
+       {/* <Text>{cutStringWithEllipsis(description,40)}</Text> */}
       </View>
       <View />
         <Text style={GlobalStyles.smallText}>{date}</Text>

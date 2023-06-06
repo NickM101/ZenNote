@@ -25,7 +25,7 @@ const Routing = () => {
       <Stack.Screen name="Home" component={HomeScreen} />
       <Stack.Screen name="NewNote" component={NewNote} />
       <Stack.Screen name="PreviewNote" component={PreviewNotes} />
-      <Stack.Screen name="BrowseNote" component={BrowseNotes} />
+      <Stack.Screen name="BrowseNotes" component={BrowseNotes} />
     </Stack.Navigator>
   )
 };
