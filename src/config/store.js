@@ -3,7 +3,7 @@ import { devtools } from 'zustand/middleware'
 
  const useNotesStore = create((set) => ({
   notes: [],
-  addNote: (note) => set((state) => ({ notes: [...state.notes, note] })),
+  addNote: (note) => set((state) => ({ notes: [note, ...state.notes] })),
   deleteNote: (id) =>
     set((state) => ({
       notes: state.notes.filter((note) => note.id !== id)

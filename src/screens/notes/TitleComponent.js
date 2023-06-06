@@ -14,7 +14,7 @@ const TitleComponent = ({title, date, onPress}) => {
     const styles = StyleSheet.create({
     container: {
       flexDirection: "row",
-      justifyContent: "space-around",
+      justifyContent: "space-between",
       alignItems: "center",
       borderRadius: 20,
       borderWidth: 2,
@@ -33,8 +33,7 @@ const TitleComponent = ({title, date, onPress}) => {
   return (
     <Pressable onPress={onPress} style={styles.container}>
       <View style={{flexDirection: 'column', }}>
-        <Text style={{ fontWeight: 'bold', fontSize: 18, paddingBottom: 5}}>{title}</Text>
-       {/* <Text>{cutStringWithEllipsis(description,40)}</Text> */}
+        <Text style={{ fontWeight: 'bold', fontSize: 16, paddingBottom: 5}}>{cutStringWithEllipsis(title,32)}</Text>
       </View>
       <View />
         <Text style={GlobalStyles.smallText}>{date}</Text>

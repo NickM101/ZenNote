@@ -63,7 +63,7 @@ const NewNote = React.memo(({ navigation }) => {
   const submitContentHandle = () => {
     setShowDescError(!descHTML)
     if (descHTML && inputValue) {
-      navigation.navigate('PreviewNote', { title: inputValue, body: descHTML, read_only: false })
+      navigation.push('PreviewNote', { title: inputValue, body: descHTML, read_only: false })
     } else {
       Toast.show({
         type: 'error',

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import {StyleSheet,  Modal, Button, Text, View, useWindowDimensions} from "react-native";
 import RenderHtml, {HTMLElementModel, useInternalRenderer } from 'react-native-render-html'
+import dayjs from 'dayjs';
+
 
 import {GlobalStyles} from "@styles";
 import {NavigationButton} from "@components";
@@ -33,8 +35,10 @@ const PreviewNotes = ({navigation, route}) => {
 
 
   const onNotesSave = () => {
-      const newNote = { id: uid() ,title, note: htmlContent};
+    const currentDate = dayjs().format('YYYY-MM-DD');
+      const newNote = { id: uid() ,title, note: htmlContent, createdOn: currentDate};
       addNote(newNote);
+      navigation.navigate('BrowseNotes')
   }
 
 

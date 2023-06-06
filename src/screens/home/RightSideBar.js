@@ -3,13 +3,19 @@ import {StyleSheet, View, Image, Pressable} from "react-native";
 import {useTheme} from "@react-navigation/native";
 
 import search from "@images/search.png";
+import { Toast } from "react-native-toast-message/lib/src/Toast";
 
 const RightSideBar = () => {
   const {colors} = useTheme();
 
-  const handleSearch = () => {
-    console.log('Searching');
-  };
+  const handleSearch = () => Toast.show({
+      type: 'info',
+      text1: "Feature Unavailable",
+      text2: "This feature is currently not available. Please check back later.",
+      position: "bottom",
+      bottomOffset: 20
+    })
+
 
   return (
     <View style={styles.container}>

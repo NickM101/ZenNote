@@ -8,6 +8,7 @@ import { Divider, OutlinedButton, NavigationButton } from '@components';
 import TitleComponent from './TitleComponent';
 import EmptyNotes from './empty_notes';
 import useNotesStore from '../../config/store';
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
 
 const BrowseNotes = ({ navigation }) => {
       const savedNotes = useNotesStore(state => state.notes);
@@ -18,8 +19,14 @@ const BrowseNotes = ({ navigation }) => {
           headerShown: true,
           headerTitleAlign: "center",
           title: 'Browse Notes',
-          headerLeft: () => <NavigationButton image={back} onPress={() => navigation.goBack()} />,
-          headerRight: () => <NavigationButton image={search} back={false} onPress={() => navigation.goBack()} />,
+          headerLeft: () => <NavigationButton image={back} onPress={() => navigation.navigate('Home')} />,
+          headerRight: () => <NavigationButton image={search} back={false} onPress={() =>  Toast.show({
+            type: 'info',
+            text1: "Feature Unavailable",
+            text2: "This feature is currently not available. Please check back later.",
+            position: "bottom",
+            bottomOffset: 20
+          })} />,
           headerTitleStyle:{...GlobalStyles.buttonText},
           headerShadowVisible: false
         });
@@ -27,7 +34,7 @@ const BrowseNotes = ({ navigation }) => {
 
       const handleNavigation = (item) => {
         // Handle navigation to the details screen based on the item ID
-        navigation.navigate('PreviewNote', { read_only: true })
+        navigation.push('PreviewNote', { read_only: true })
       };
     
       const renderItem = ({item}) => {
@@ -35,7 +42,7 @@ const BrowseNotes = ({ navigation }) => {
           <TitleComponent
             onPress={() => handleNavigation(item)}
             title={item.title}
-            date={item.date}
+            date={item.createdOn}
           />
         );
       };
@@ -47,7 +54,7 @@ const BrowseNotes = ({ navigation }) => {
             <View style={styles.footer}>
             
             <Divider />
-            <OutlinedButton title={'New Note'} onPress={() => navigation.navigate('NewNote')}/>
+            <OutlinedButton title={'New Note'} onPress={() => navigation.push('NewNote')}/>
             </View>
         );
       }
