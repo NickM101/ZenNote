@@ -7,10 +7,11 @@ import dayjs from 'dayjs';
 import {GlobalStyles} from "@styles";
 import {NavigationButton} from "@components";
 import back from "@images/back.png";
-import save from "@images/save.png";
+
 
 import {cutStringWithEllipsis, uid} from "../../config/utils/helper";
 import useNotesStore from "../../config/store";
+import RightBarMenu from "./RightBarMenu";
 
 
 const PreviewNotes = ({navigation, route}) => {
@@ -27,7 +28,7 @@ const PreviewNotes = ({navigation, route}) => {
       headerTitleAlign: "center",
       title: cutStringWithEllipsis(title, 22),
       headerLeft: () => <NavigationButton image={back} onPress={() => navigation.goBack()} />,
-      headerRight: () => status ? <View/> : <NavigationButton image={save} onPress={onNotesSave} back={false} />,
+      headerRight: () => <RightBarMenu read_only={status} onNotesSave={onNotesSave} onMenuTap={onMenuTap}/>,
       headerTitleStyle:{width: 10, overflow: "hidden", ...GlobalStyles.buttonText},
       headerShadowVisible: false
     });
@@ -40,6 +41,8 @@ const PreviewNotes = ({navigation, route}) => {
       addNote(newNote);
      return navigation.navigate('BrowseNotes');
   }
+
+  const onMenuTap = () => {}
 
 
  
