@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {StyleSheet,  Modal, Button, Text, View, useWindowDimensions} from "react-native";
+import {StyleSheet,  Modal, Button, Text, View, useWindowDimensions, Alert} from "react-native";
 import RenderHtml, {HTMLElementModel, useInternalRenderer } from 'react-native-render-html'
 import dayjs from 'dayjs';
 
@@ -9,7 +9,7 @@ import {NavigationButton} from "@components";
 import back from "@images/back.png";
 
 
-import {cutStringWithEllipsis, uid} from "../../config/utils/helper";
+import {cutStringWithEllipsis} from "../../config/utils/helper";
 import useNotesStore from "../../config/store";
 import RightBarMenu from "./RightBarMenu";
 
@@ -18,9 +18,13 @@ const PreviewNotes = ({navigation, route}) => {
   const body = route.params?.body;
   const title = route.params?.title ?? '';
   const status = route.params?.read_only ?? false;
+  const id = route.params?.id;
+
+  console.log('id',id);
   
   const {width} = useWindowDimensions();
   const addNote = useNotesStore((state) => state.addNote);
+  const deleteNote = useNotesStore((state) => state.deleteNote);
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -37,12 +41,20 @@ const PreviewNotes = ({navigation, route}) => {
 
   const onNotesSave = () => {
     const currentDate = dayjs().format('YYYY-MM-DD');
-      const newNote = { id: uid() ,title, body, createdOn: currentDate};
+      const newNote = { id,title, body, createdOn: currentDate};
       addNote(newNote);
      return navigation.navigate('BrowseNotes');
   }
 
-  const onMenuTap = () => {}
+  const onMenuTap = () =>
+  Alert.alert("Confirm Deletion", "Are you sure you want to delete this note? This action cannot be undone.", [
+    {
+      text: 'Cancel',
+      onPress: () => {},
+      style: 'cancel',
+    },
+    {text: 'OK', onPress: () => {deleteNote(id), navigation.goBack()}},
+  ]);
 
 
  

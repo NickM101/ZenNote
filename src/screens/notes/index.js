@@ -9,9 +9,12 @@ import TitleComponent from './TitleComponent';
 import EmptyNotes from './empty_notes';
 import useNotesStore from '../../config/store';
 import { Toast } from 'react-native-toast-message/lib/src/Toast';
+import { uid } from '../../config/utils/helper';
 
 const BrowseNotes = ({ navigation }) => {
       const savedNotes = useNotesStore(state => state.notes);
+
+      console.log(savedNotes);
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
@@ -32,8 +35,7 @@ const BrowseNotes = ({ navigation }) => {
       }, [navigation]);
 
       const handleNavigation = (item) => {
-        // Handle navigation to the details screen based on the item ID
-        navigation.push('PreviewNote', { ...item, read_only: true })
+        navigation.push('PreviewNote', { ...item, read_only: true, })
       };
     
       const renderItem = ({item}) => {

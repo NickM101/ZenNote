@@ -8,6 +8,7 @@ import Toast from 'react-native-toast-message'
 import FontFamilyStyleSheet from '../../config/utils/stylesheet'
 import NavigationBar from './NavigationBar'
 import CustomTextInput from './CustomTextInput'
+import { uid } from '../../config/utils/helper'
 
 const ToolbarTools = [
   actions.redo,
@@ -63,7 +64,7 @@ const NewNote = React.memo(({ navigation }) => {
   const submitContentHandle = () => {
     setShowDescError(!descHTML)
     if (descHTML && inputValue) {
-      navigation.push('PreviewNote', { title: inputValue, body: descHTML, read_only: false })
+      navigation.push('PreviewNote', {id: uid(), title: inputValue, body: descHTML, read_only: false })
     } else {
       Toast.show({
         type: 'error',
