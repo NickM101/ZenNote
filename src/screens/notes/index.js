@@ -6,6 +6,7 @@ import { GlobalStyles } from '@styles';
 import back from "@images/back.png";import search from "@images/search.png";
 import { Divider, OutlinedButton, NavigationButton } from '@components';
 import TitleComponent from './TitleComponent';
+import EmptyNotes from './empty_notes';
 
 const BrowseNotes = ({ navigation }) => {
     const [data, setData] = React.useState([
@@ -58,12 +59,13 @@ const BrowseNotes = ({ navigation }) => {
   return (
    <SafeAreaView style={styles.container}>
         <FlatList
-          data={data}
+          data={[]}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
           ListFooterComponent={footerComponent}
           ListHeaderComponent={<View style={{marginVertical: 10}} />}
-          contentContainerStyle={{ paddingHorizontal: 15 , alignItems: 'center'}}
+          contentContainerStyle={{ paddingHorizontal: 12 , justifyContent: 'center'}}
+          ListEmptyComponent={<EmptyNotes />}
     />
     </SafeAreaView>
   )
