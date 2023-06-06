@@ -13,7 +13,6 @@ import { Toast } from 'react-native-toast-message/lib/src/Toast';
 const BrowseNotes = ({ navigation }) => {
       const savedNotes = useNotesStore(state => state.notes);
 
-      console.log('Saved Notes ---- savedNotes', savedNotes);
     React.useLayoutEffect(() => {
         navigation.setOptions({
           headerShown: true,
@@ -34,7 +33,7 @@ const BrowseNotes = ({ navigation }) => {
 
       const handleNavigation = (item) => {
         // Handle navigation to the details screen based on the item ID
-        navigation.push('PreviewNote', { read_only: true })
+        navigation.push('PreviewNote', { ...item, read_only: true })
       };
     
       const renderItem = ({item}) => {

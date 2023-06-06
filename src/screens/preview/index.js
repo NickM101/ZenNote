@@ -14,7 +14,7 @@ import useNotesStore from "../../config/store";
 
 
 const PreviewNotes = ({navigation, route}) => {
-  const htmlContent = route.params?.body;
+  const body = route.params?.body;
   const title = route.params?.title ?? '';
   const status = route.params?.read_only ?? false;
   
@@ -36,9 +36,9 @@ const PreviewNotes = ({navigation, route}) => {
 
   const onNotesSave = () => {
     const currentDate = dayjs().format('YYYY-MM-DD');
-      const newNote = { id: uid() ,title, note: htmlContent, createdOn: currentDate};
+      const newNote = { id: uid() ,title, body, createdOn: currentDate};
       addNote(newNote);
-      navigation.navigate('BrowseNotes')
+     return navigation.navigate('BrowseNotes');
   }
 
 
@@ -72,7 +72,7 @@ const PreviewNotes = ({navigation, route}) => {
     <View style={{paddingHorizontal: 20, marginBottom: 10}}>
       <RenderHtml 
         contentWidth={width} 
-        source={{ html: htmlContent }} 
+        source={{ html: body }} 
         tagsStyles={tagsStyles}
         renderersProps={renderersProps}
 
