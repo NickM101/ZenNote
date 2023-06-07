@@ -42,7 +42,6 @@ const SignInScreen = ({ navigation }) => {
   );
 
   const handleSubmit = () => {
-    console.log("Credentials --- ", state)
     navigation.navigate("Home");
   }
 

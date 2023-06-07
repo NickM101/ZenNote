@@ -45,7 +45,9 @@ const SignUpScreen = ({ navigation }) => {
   }
   );
 
-  const handleSubmit = () => {}
+  const handleSubmit = () => {
+    navigation.navigate("Home");
+  }
 
 
   return (
