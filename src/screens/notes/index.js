@@ -14,8 +14,6 @@ import { uid } from '../../config/utils/helper';
 const BrowseNotes = ({ navigation }) => {
       const savedNotes = useNotesStore(state => state.notes);
 
-      console.log(savedNotes);
-
     React.useLayoutEffect(() => {
         navigation.setOptions({
           headerShown: true,

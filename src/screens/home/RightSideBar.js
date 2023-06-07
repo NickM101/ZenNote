@@ -2,7 +2,8 @@ import React from "react";
 import {StyleSheet, View, Image, Pressable} from "react-native";
 import {useTheme} from "@react-navigation/native";
 
-import search from "@images/search.png";
+import zen_lamp from "@images/zen_lamp.png";
+import search from "@images/draw.png";
 import { Toast } from "react-native-toast-message/lib/src/Toast";
 
 const RightSideBar = () => {
@@ -23,7 +24,8 @@ const RightSideBar = () => {
         <Image
           source={search}
           style={styles.image}
-          tintColor={colors.text}
+          defaultSource={search}
+          // tintColor={colors.text}
         />
       </Pressable>
       <View style={[styles.line, { backgroundColor: colors.placeholder }]}/>
@@ -47,8 +49,9 @@ const styles = StyleSheet.create({
     height: 50,
   },
   image: {
-    height: 24,
-    width: 24,
+    borderRadius: 50,
+    height: 30,
+    width: 30,
   },
   line: {
     height: 50,

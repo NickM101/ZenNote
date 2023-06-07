@@ -1,15 +1,17 @@
 import React from "react";
-import {View} from "react-native";
+import {View, Image, StyleSheet} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
 
-import {ButtonRow, UsernameInput, PasswordInput, Divider,OutlinedButton, Header} from "@components";
+import {ButtonRow, CustomTextInput, PasswordInput, Divider,OutlinedButton, Header} from "@components";
 import {GlobalStyles} from "@styles";
-import GoogleIcon from "@images/google.png";
-import FacebookIcon from "@images/facebook.png";
+import zen_note from "@images/zen_note_logo.png";
+import zen_lamp from "@images/zen_lamp.png";
+
 
 const initialState = {
   username: '',
   password: '',
+  email: ''
 };
 
 function reducer(state, action) {
@@ -18,36 +20,50 @@ function reducer(state, action) {
       return { ...state, username: action.payload };
     case 'SET_PASSWORD':
       return { ...state, password: action.payload };
+      case 'SET_EMAIL':
+      return { ...state, email: action.payload };
     default:
       return state;
   }
 }
 
 
-const SignUpScreen = () => {
+const SignUpScreen = ({ navigation }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
-  const handleSubmit = () => {
-    console.log(state);
-    // navigation.navigate("Home");
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: true,
+      title: null,
+      headerTransparent: true,
+      headerLeft: () => <Image 
+          source={zen_note}
+          style={styles.logo}
+      />,
+    },
+    )
   }
+  );
 
-  const handleLeftButtonPress = () => {
-    navigation.navigate("SignIn");
-  };
+  const handleSubmit = () => {}
 
-  const handleRightButtonPress = () => {
-    navigation.navigate("SignUp");
-  };
 
   return (
     <SafeAreaView
-      style={[GlobalStyles.container]}
+    style={{justifyContent: 'space-evenly', ...GlobalStyles.container}}
     >
-      <Header />
-      <UsernameInput
+      <Image source={zen_lamp} style={styles.image} />
+      <View>
+      <CustomTextInput
+      label={'Username'}
         value={state.username}
         onChangeText={(text) => dispatch({ type: 'SET_USERNAME', payload: text })}
+        error={""}
+      />
+      <CustomTextInput
+      label={'Email Address'}
+        value={state.email}
+        onChangeText={(text) => dispatch({ type: 'SET_EMAIL', payload: text })}
         error={""}
       />
       <PasswordInput
@@ -56,21 +72,24 @@ const SignUpScreen = () => {
         error={""}
         placeholder={"****"}
       />
-      <OutlinedButton title={"Sign In"} onPress={handleSubmit} fill={true} />
-      <View style={GlobalStyles.spacer20} />
-      <Divider />
-      <View style={GlobalStyles.spacer20} />
-      <ButtonRow
-        leftButtonTitle="Continue with Google"
-        leftButtonOnPress={handleLeftButtonPress}
-        leftButtonIcon={GoogleIcon}
-        rightButtonTitle="Continue with Facebook"
-        rightButtonOnPress={handleRightButtonPress}
-        rightButtonIcon={FacebookIcon}
-      />
+      </View>
+      <OutlinedButton title={"Sign Up"} onPress={handleSubmit} fill={true} />
+     
       <View style={GlobalStyles.spacer20} />
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  image: {
+    alignSelf: 'center',
+    width: 200,
+    height: 250,
+  },
+  logo: {
+    width: 50,
+    height: 50,
+  }
+})
 
 export default SignUpScreen;

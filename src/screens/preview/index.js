@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import {StyleSheet,  Modal, Button, Text, View, useWindowDimensions, Alert} from "react-native";
+import React from "react";
+import {View, useWindowDimensions, Alert} from "react-native";
 import RenderHtml, {HTMLElementModel, useInternalRenderer } from 'react-native-render-html'
 import dayjs from 'dayjs';
 
@@ -20,7 +20,6 @@ const PreviewNotes = ({navigation, route}) => {
   const status = route.params?.read_only ?? false;
   const id = route.params?.id;
 
-  console.log('id',id);
   
   const {width} = useWindowDimensions();
   const addNote = useNotesStore((state) => state.addNote);

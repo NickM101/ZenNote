@@ -1,12 +1,11 @@
 import React from "react";
-import {View} from "react-native";
+import {View, StyleSheet,Image} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
-import Toast from 'react-native-toast-message'
 
-import {ButtonRow, UsernameInput, PasswordInput, Divider,OutlinedButton, Header} from "@components";
+import { CustomTextInput, PasswordInput, Divider,OutlinedButton, Header} from "@components";
 import {GlobalStyles} from "@styles";
-import GoogleIcon from "@images/google.png";
-import FacebookIcon from "@images/facebook.png";
+import zen_note from "@images/zen_note_logo.png";
+import zen_lamp from "@images/zen_lamp.png";
 
 const initialState = {
   username: '',
@@ -28,27 +27,35 @@ function reducer(state, action) {
 const SignInScreen = ({ navigation }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: true,
+      title: null,
+      headerTransparent: true,
+      headerLeft: () => <Image 
+          source={zen_note}
+          style={styles.logo}
+      />,
+    },
+    )
+  }
+  );
+
   const handleSubmit = () => {
-    console.log(state);
+    console.log("Credentials --- ", state)
     navigation.navigate("Home");
   }
 
-  const handleButtonPress = () => {
-    Toast.show({
-      type: 'info',
-      text1: 'ONLY FOR DEMO PURPOSE ONLY',
-      text2: "Demo only. No real actions or data processed.",
-      position: "bottom",
-      bottomOffset: 20
-    })
-  };
-
   return (
     <SafeAreaView
-      style={[GlobalStyles.container]}
+      style={{justifyContent: 'space-evenly', ...GlobalStyles.container}}
     >
-      <Header />
-      <UsernameInput
+       <Image source={zen_lamp} style={styles.image} />
+      <View>
+        <View style={GlobalStyles.spacer20}/>
+      <CustomTextInput
+      label={'Username'}
+      placeholder={'Username (required)'}
         value={state.username}
         onChangeText={(text) => dispatch({ type: 'SET_USERNAME', payload: text })}
         error={""}
@@ -59,11 +66,13 @@ const SignInScreen = ({ navigation }) => {
         error={""}
         placeholder={"****"}
       />
+      </View>
+
       <OutlinedButton title={"Sign In"} onPress={handleSubmit} fill={true} />
-      <View style={GlobalStyles.spacer20} />
+      {/* <View style={GlobalStyles.spacer20} />
       <Divider />
-      <View style={GlobalStyles.spacer20} />
-      <ButtonRow
+      <View style={GlobalStyles.spacer20} /> */}
+      {/* <ButtonRow
         leftButtonTitle="Continue with Google"
         leftButtonOnPress={handleButtonPress}
         leftButtonIcon={GoogleIcon}
@@ -71,9 +80,21 @@ const SignInScreen = ({ navigation }) => {
         rightButtonOnPress={handleButtonPress}
         rightButtonIcon={FacebookIcon}
       />
-      <View style={GlobalStyles.spacer20} />
+      <View style={GlobalStyles.spacer20} /> */}
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  image: {
+    alignSelf: 'center',
+    width: 200,
+    height: 250,
+  },
+  logo: {
+    width: 50,
+    height: 50,
+  }
+})
 
 export default SignInScreen;
