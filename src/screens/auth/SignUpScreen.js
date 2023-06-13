@@ -2,7 +2,7 @@ import React from "react";
 import {View, Image, StyleSheet} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
 
-import {ButtonRow, CustomTextInput, PasswordInput, Divider,OutlinedButton, Header} from "@components";
+import {OutlinedButton, CustomTextInput, PasswordInput} from "@components";
 import {GlobalStyles} from "@styles";
 import zen_note from "@images/zen_note_logo.png";
 import zen_lamp from "@images/zen_lamp.png";

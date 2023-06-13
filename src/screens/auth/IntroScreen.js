@@ -4,7 +4,7 @@ import {SafeAreaView} from "react-native-safe-area-context";
 import {useTheme} from "@react-navigation/native";
 
 import zen_lamp from "@images/zen_lamp.png";
-import {ButtonRow} from "@components";
+import {OutlinedButton} from "@components";
 import {GlobalStyles} from "@styles";
 
 const IntroScreen = ({navigation}) => {
@@ -44,12 +44,13 @@ const IntroScreen = ({navigation}) => {
       <Text style={[GlobalStyles.smallText, {color: colors.text}]}>
       ZenNote is a lightweight and intuitive note-taking application designed for modern mobile devices. With a clean and minimalist user interface</Text>
       <View style={GlobalStyles.spacer50} />
-      <ButtonRow
+      <OutlinedButton title={"Get Started"} onPress={() => navigation.navigate('Home')} fill={true} />
+      {/* <ButtonRow
         leftButtonTitle="Sign In"
         leftButtonOnPress={handleLeftButtonPress}
         rightButtonTitle="Sign Up"
         rightButtonOnPress={handleRightButtonPress}
-      />
+      /> */}
     </SafeAreaView>
   );
 };
