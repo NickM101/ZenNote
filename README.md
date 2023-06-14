@@ -3,7 +3,10 @@
 
 # ZenNote
 
-ZenNote is a lightweight and intuitive note-taking application designed for modern mobile devices. With a clean and minimalist user interface, ZenNote makes it easy to capture and organize your thoughts, ideas, and reminders on the go.
+Zennote - Lightweight and Intuitive Note-Taking App
+
+Zennote is a powerful and efficient note-taking application built using React Native and Zustand. It offers a seamless experience for capturing and organizing your thoughts, ideas, and reminders right from your mobile device. With its clean and minimalist user interface, Zennote is designed to enhance your productivity and simplify your note-taking process.
+
 
 
 ## Screenshots
