@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "zen_note.app"
-               BlueprintName = "zen_note"
-               ReferencedContainer = "container:zen_note.xcodeproj">
+               BuildableName = "ZenNote.app"
+               BlueprintName = "ZenNote"
+               ReferencedContainer = "container:ZenNote.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "zen_noteTests.xctest"
-               BlueprintName = "zen_noteTests"
-               ReferencedContainer = "container:zen_note.xcodeproj">
+               BuildableName = "ZenNoteTests.xctest"
+               BlueprintName = "ZenNoteTests"
+               ReferencedContainer = "container:ZenNote.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "zen_note.app"
-            BlueprintName = "zen_note"
-            ReferencedContainer = "container:zen_note.xcodeproj">
+            BuildableName = "ZenNote.app"
+            BlueprintName = "ZenNote"
+            ReferencedContainer = "container:ZenNote.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "zen_note.app"
-            BlueprintName = "zen_note"
-            ReferencedContainer = "container:zen_note.xcodeproj">
+            BuildableName = "ZenNote.app"
+            BlueprintName = "ZenNote"
+            ReferencedContainer = "container:ZenNote.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

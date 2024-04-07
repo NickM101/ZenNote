@@ -1,4 +1,4 @@
-package com.zen_note;
+package com.nexusnova.zennote;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
@@ -9,7 +9,6 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
 import com.facebook.react.defaults.DefaultReactNativeHost;
 import com.facebook.soloader.SoLoader;
 import java.util.List;
-import com.airbnb.android.react.lottie.LottiePackage;
 
 public class MainApplication extends Application implements ReactApplication {
 

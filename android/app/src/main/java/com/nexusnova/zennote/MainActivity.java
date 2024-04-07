@@ -1,4 +1,4 @@
-package com.zen_note;
+package com.nexusnova.zennote;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -16,7 +16,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "zen_note";
+    return "ZenNote";
   }
 
   @Override

@@ -1,12 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-import Lottie from 'lottie-react-native';
 
 const EmptyNotes = () => {
   return (
     <View style={styles.container}>
-        <Lottie source={require('../../assets/json/empty-list.json')} autoPlay loop style={styles.lottie} />
+        {/* <Lottie source={require('../../assets/json/empty-list.json')} autoPlay loop style={styles.lottie} /> */}
       <Text style={styles.text}>Let's Get Started! {'\n'} Create and Save Your First Note!</Text>
     </View>
   )
